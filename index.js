@@ -24,7 +24,7 @@ function promptUser() {
      {
       type: 'input',
       name: 'usage',
-      message: 'Provide dome of the usage information:',
+      message: 'Provide some of the usage information:',
     },
     {
       type: 'input',
@@ -54,7 +54,6 @@ function promptUser() {
     },
   ]);
 
- 
 }
 //function generateREADME declares the function that takes an object (answers) as a parameter
 //(answers) has the users responses to the prompts
