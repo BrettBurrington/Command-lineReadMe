@@ -55,7 +55,7 @@ function promptUser() {
   ]);
 
 }
-function renderLicensBadage(license){
+function renderLicenseBadage(license){
 console.log("license badge:"+ license)
 if (license=="MIT"){
   return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
@@ -70,15 +70,20 @@ else {
   return ""
 }}
 
+
 //function generateREADME declares the function that takes an object (answers) as a parameter
 //(answers) has the users responses to the prompts
 //returning a string literal!!
 //put the badge after 64
 function generateREADME(answers) {
+  const licenseSection = '';
+  if (answers.license !== 'None') {
+    licenseSection = `## License\n${answers.license}\n`;
+  }
   return `
 # ${answers.projectTitle}
 
-${renderLicensBadage(answers.license)}
+${renderLicenseBadage(answers.license)}
 
 ## Introduction
 ${answers.description}
@@ -86,7 +91,7 @@ ${answers.description}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
+${answers.license !== 'None' ? '- [License](#license)' : ''}
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -97,8 +102,8 @@ ${answers.installation}
 ## Usage
 ${answers.usage}
 
-## License
-${answers.license === 'None' ? 'No License' : answers.license}
+${licenseSection ? '## License' : ''}
+${answers.license === 'None' ? '' : answers.license}
 
 ## Contributing
 ${answers.contribution}
@@ -135,4 +140,4 @@ async function init() {
 //this logs whether it had an error or success when its generated
 init()
 //if statement if the user picks none return empty string
-//one for the license link table and for bottom
+//one for the license link table and for botto
