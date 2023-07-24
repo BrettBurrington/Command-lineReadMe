@@ -76,7 +76,7 @@ else {
 //returning a string literal!!
 //put the badge after 64
 function generateREADME(answers) {
-  const licenseSection = '';
+  let licenseSection = '';
   if (answers.license !== 'None') {
     licenseSection = `## License\n${answers.license}\n`;
   }
