@@ -75,6 +75,7 @@ else {
 //(answers) has the users responses to the prompts
 //returning a string literal!!
 //put the badge after 64
+//licenseSection to empty string
 function generateREADME(answers) {
   let licenseSection = '';
   if (answers.license !== 'None') {
@@ -112,7 +113,7 @@ ${answers.contribution}
 ${answers.tests}
 
 ## Questions
-For any inquiries, contact the visionary leader at GitHub: [${answers.githubUsername}](https://github.com/${answers.githubUsername}) or via email at ${answers.email}.
+For any inquiries, contact the visionary leader at GitHub: [${answers.githubUsername}](https://github.com/${answers.githubUsername}) or via email at[${answers.email}](mailTo:${answers.email}).
 `;
 }
 //this is so when they put their git hub name into it  it will be converted into a link containing the github id
@@ -139,5 +140,3 @@ async function init() {
 }
 //this logs whether it had an error or success when its generated
 init()
-//if statement if the user picks none return empty string
-//one for the license link table and for botto
